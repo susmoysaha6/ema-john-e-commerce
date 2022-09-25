@@ -32,6 +32,9 @@
 }
 
 .btn-cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     background-color: #ffe0b3;
     border: none;
@@ -42,4 +45,8 @@
 
 .btn-cart:hover {
     background-color: orange;
+}
+
+.btn-text {
+    margin-right: 5px;
 }
