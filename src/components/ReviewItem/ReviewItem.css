@@ -1,0 +1,15 @@
+.review-item {
+    display: flex;
+    align-items: center;
+}
+
+.review-item img {
+    width: 91px;
+}
+
+.review-details-container {
+    display: flex;
+    align-items: center;
+}
+
+.review-details {}
