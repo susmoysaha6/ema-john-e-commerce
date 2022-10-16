@@ -5,7 +5,7 @@ import './Header.css';
 import { AuthContext } from '../../contexts/UserContext';
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     return (
         <nav className='header'>
             <Link to='/' ><img src={logo} alt="" /></Link>
@@ -14,8 +14,11 @@ const Header = () => {
                 <NavLink to="/orders">Orders</NavLink>
                 <NavLink to="/inventory">Inventory</NavLink>
                 <NavLink to="/about">About</NavLink>
-                <NavLink to="/login">Login</NavLink>
-                <NavLink to="/signup">Sign up</NavLink>
+                {user?.uid ? <button className='btn-logout' onClick={logOut}>Log Out</button> :
+                    <>
+                        <NavLink to="/login">Login</NavLink>
+                        <NavLink to="/signup">Sign up</NavLink>
+                    </>}
                 <span>{user?.email}</span>
             </div>
         </nav>

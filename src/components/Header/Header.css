@@ -23,3 +23,7 @@
 .header .active {
     color: orangered;
 }
+
+.btn-logout {
+    margin: 0 10px;
+}
