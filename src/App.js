@@ -20,12 +20,10 @@ function App() {
       children: [
         {
           path: '/',
-          loader: productsAndCartLoader,
           element: <Shop></Shop>
         },
         {
           path: '/shop',
-          loader: productsAndCartLoader,
           element: <Shop></Shop>
         },
         {
