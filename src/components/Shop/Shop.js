@@ -54,15 +54,25 @@ const Shop = () => {
         const storedCart = getStoredCart();
         const savedCart = [];
         const ids = Object.keys(storedCart);
-        for (const id in storedCart) {
-            const addedProduct = products.find(product => product._id === id);
-            if (addedProduct) {
-                const quantity = storedCart[id];
-                addedProduct.quantity = quantity;
-                savedCart.push(addedProduct);
-            }
-        }
-        setCart(savedCart);
+        fetch('http://localhost:5000/productsByIds', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(ids)
+        })
+            .then(res => res.json())
+            .then(data => {
+                for (const id in storedCart) {
+                    const addedProduct = data.find(product => product._id === id);
+                    if (addedProduct) {
+                        const quantity = storedCart[id];
+                        addedProduct.quantity = quantity;
+                        savedCart.push(addedProduct);
+                    }
+                }
+                setCart(savedCart);
+            })
     }, [products])
     return (
         <div className='shop-container'>
